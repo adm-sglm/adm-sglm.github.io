@@ -1,0 +1,945 @@
+* {
+    box-sizing: border-box;
+  }
+
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family:  "Glegoo", serif;
+    font-weight: 400;
+    font-style: normal;
+    scroll-behavior: smooth;
+
+}
+p {
+
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+.site-header {
+    border-bottom: 1px solid #ddd;
+    padding: 16px 24px;
+  }
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Üstte kalması için yüksek bir değer */
+    background-color: #fff; /* Arka plan rengi varsa ekleyin */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* İsteğe bağlı gölge efekti */
+  }
+  
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: flex-end;
+    gap: 50px;
+  }
+  
+  /* Sol Kısım */
+  .header-left .text-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .header-left .center-logo {
+    width: 100px;
+    height: auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    .header-left .center-logo {
+        display: none;
+    }
+    
+  }
+  
+  .logo-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 2rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    text-align: center;
+  }
+  
+
+  
+  /* Sağ Menü */
+  .header-right .nav-list {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: rgb(17, 24, 39);
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .nav-link:hover {
+    opacity: 0.7;
+  }
+
+  /** MOBILE MENU **/
+
+  /* Menü butonu (mobilde görünür) */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001; /* Menü üzerinde kalsın */
+  }
+  
+  .menu-toggle .bar {
+    width: 24px;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s ease;
+  }
+  
+  /* Açıldığında X şekline dönüşsün */
+  .menu-toggle.open .top-bar {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle.open .middle-bar {
+    opacity: 0;
+  }
+  
+  .menu-toggle.open .bottom-bar {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Mobil menü */
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background-color: #fff;
+  }
+  
+  .mobile-menu.open {
+    max-height: 300px; /* Menü yüksekliği kadar */
+  }
+  
+  .mobile-nav-list {
+    list-style: none;
+    padding: 40px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .mobile-nav-list a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+  }
+  
+  /* Masaüstü görünüm */
+  @media (min-width: 768px) {
+    .menu-toggle {
+      display: none;
+    }
+    .mobile-menu {
+      display: none !important;
+    }
+  }
+  
+  /* Mobil görünüm */
+  @media (max-width: 767px) {
+    .menu-toggle {
+      display: flex;
+    }
+    .desktop-menu {
+      display: none;
+    }
+  }
+  
+  .hero-logo {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .hero-logo img {
+    width: 300px;
+    height: auto;
+  }
+  
+  /* HERO LOGO*/
+  .hero-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .hero-logo {
+        padding: 0;
+    }
+    .hero-logo img {
+        width: 150px;
+        height: auto;
+      }
+      .hero-inner {
+        padding: 25px;
+      }
+  }
+  
+  
+  @media screen and (max-width: 767px) {
+    .hero-inner {
+        width: 100%;
+    }
+    
+  }
+  .hero-logo-img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+/* ABOUT SECTION */
+  .about-section {
+    padding: 60px 20px;
+    background-color: rgb(249, 250, 251); /* Açık gri arka plan */
+  }
+  
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .about-text {
+    flex: 1 1 60%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .about-title {
+    font-size: 60px;
+    font-family:  "Glegoo", serif;
+    line-height: 60px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .about-subtitle {
+    font-size: 20px;
+    line-height: 28px;
+    font-family:  "Glegoo", serif;
+    font-weight: 400;
+    color: rgb(107, 114, 128);
+    margin-bottom: 24px;
+  }
+  
+  .about-text p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    color: rgb(107, 114, 128);
+  }
+  
+  .about-button {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .about-button:hover {
+    background-color: #333;
+  }
+  
+  .about-image {
+    flex: 1 1 30%;
+    text-align: center;
+  }
+  
+  .about-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .about-image img {
+        max-width: 100%;
+    }
+    
+  }
+
+  /** TRAINING SECTION **/
+
+
+  .trainings-section {
+    padding: 60px 20px;
+    background-color: #f5f6f8;
+  }
+  
+  .trainings-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    font-family: Arial, Helvetica, sans-serif
+  }
+  
+  .training-group {
+    margin-bottom: 40px;
+  }
+  
+  .group-title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+  }
+  
+  .sub-group {
+    margin-bottom: 24px;
+  }
+
+  .with-line {
+    border-left: 3.35px solid rgb(31, 152, 166);
+  padding-left: 16px;
+  margin-bottom: 24px;
+  }
+  
+  .sub-title {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgb(17, 24, 28);
+    margin-bottom: 8px;
+    padding-left: 16px;
+  }
+  
+  .training-group ul {
+    list-style: disc;
+    padding-left: 36px;
+  }
+
+  .training-group .two-columns {
+    display: flex;
+    gap: 50px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .training-group .two-columns {
+        flex-direction: column;
+    }
+    
+  }
+  
+  .training-group li a {
+    margin-bottom: 8px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+  }
+  .training-group li a:hover {
+    color: rgb(23, 23, 23);
+  }
+
+  .training-group li::marker {
+    color: rgb(31, 152, 166);
+  }
+  
+
+
+  /**  INFO BOX **/
+
+
+
+  .modules-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .modules-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .modules-title {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(31, 152, 166);
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius:4px;
+    margin: 0;
+    padding: 10px 20px;
+  }
+
+  .egitim-title {
+    padding: 10px 125px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .modules-title  {
+        font-size: 30px;
+        padding: 10px;
+    }
+    .egitim-title {
+        padding: 10px 30px;
+      }
+    
+  }
+
+
+  .modules-subtitle {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(107, 114, 128);
+    margin-top: 8px;
+
+  }
+
+  @media screen and (max-width: 767px) {
+    .modules-subtitle {
+        font-size: 16px;
+    }
+    
+  }
+  
+  .modules-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .module-column {
+    flex: 1 1 48%;
+  }
+  
+  .module-heading {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: inline-block;
+    position: relative;
+  }
+
+
+  .styled-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background-color: rgb(31, 152, 166); /* mavi çizgi */
+    border-radius: 2px;
+  }
+  
+  
+  .module-description {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(107, 114, 128);
+    line-height: 24px;
+    font-weight: 500;
+    
+  }
+
+  .module-card-wrapper {
+    margin-top: 24px;
+  }
+  .modules-container-inner {
+    display: flex;
+    gap: 20px;
+    padding: 48px 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    .modules-container-inner {
+        flex-direction: column;
+    }
+    
+  }
+  .module-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    border: 1px solid #eee;
+  }
+
+  .module-card-content h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin:0;
+    border-bottom: 1px solid #eee;
+    padding: 12px;
+    color: rgb(10, 10, 10);
+  }
+  
+  .module-card-content p {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(71, 85, 105);
+    line-height: 24px;
+    padding: 12px;
+  }
+  
+  .module-card-footer {
+    background-color: #dbe4e8; /* açık mavi alan */
+    padding: 12px 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .detail-button {
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s;
+  }
+  
+  .detail-button:hover {
+    background-color: #f1f1f1;
+  }
+
+  .egitim-section {
+    background-color: rgb(249, 250, 251);
+    padding: 96px 0;
+  }
+  
+
+  .egitim-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 48px 0;
+  }
+
+
+  .egitim-card-wrapper .module-card {
+    width: 32%;
+  }
+
+  @media screen and (max-width: 767px) {
+    
+    .egitim-section {
+      background-color: rgb(249, 250, 251);
+      padding: 48px 0;
+    }
+
+    .egitim-card-wrapper {
+        flex-direction: column;
+        padding: 48px 16px;
+    }
+
+    .egitim-card-wrapper .module-card {
+        width: 100%;
+    }
+      
+    }
+
+  .contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .contact-container {
+    margin: 0 auto;
+  }
+  
+  .contact-title {
+    font-size: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #111827;
+  }
+
+  
+  .contact-subtitle {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 24px;
+    color: rgb(107, 114, 128);
+    margin-bottom: 16px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .contact-title {
+        font-size: 30px;
+    }
+
+    .contact-subtitle {
+        font-size: 16px;
+    }
+  }
+  
+  .contact-card {
+    background-color: #fff;
+    border-radius: 12px;
+    max-width: 450px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    padding: 30px 20px;
+  }
+  
+  .contact-item {
+    margin: 20px 0;
+  }
+  
+  .contact-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 10px 0 5px;
+  }
+  
+  .contact-item p {
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(107, 114, 128);
+  }
+  
+  .contact-item a {
+    color: #374151;
+    text-decoration: none;
+  }
+  
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .icon-wrapper {
+    background-color: rgba(23, 23, 23, 0.1);
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 0 auto;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-card hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 20px 0;
+  }
+  
+
+  .site-footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 40px 20px;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 768px) {
+    footer-container {
+      width: 100%;
+    }
+  
+  }
+  
+  .footer-left {
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .footer-right a {
+    margin-left: 20px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  
+  .footer-right a:hover {
+    color: #111827;
+  }
+  
+
+  .satis-egitimi {
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+
+  .sattis-egitimi-baslik {
+    background: rgb(226, 232, 240);
+    padding: 24px 0;
+    margin-bottom: 24px;
+  }
+  
+  .satis-egitimi .container {
+    max-width: 1270px;
+    margin: 0 auto;
+  }
+  
+  @media screen and (max-width: 767px){
+    .satis-egitimi .container {
+        max-width: 100%;
+        padding: 0 8px;
+        margin: 0 17px;
+      }
+      
+  }
+  
+  
+  .egitim-baslik {
+    font-size: 48px;
+    line-height: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    background-color: #1799a6;
+    color: white;
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 32px;
+  }
+
+  @media screen and (max-width: 767px){
+    .egitim-baslik {
+        font-size: 30px;
+        line-height: 36px;
+    }
+  }
+  
+  .satis-egitimi h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  
+  .satis-egitimi h3 {
+    font-size: 20px;
+    margin-top: 32px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .satis-egitimi h4 {
+    font-size: 18px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #111827;
+    border-left: 4px solid #1799a6;
+    padding-left: 10px;
+  }
+  
+  .satis-egitimi p {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(17, 24, 28);
+    margin-bottom: 5px;
+  }
+  
+  .satis-egitimi p strong{
+    font-weight: 700;
+  }
+  .satis-egitimi .text-title strong{
+    font-size: 18px;
+    font-family:  "Glegoo", serif;
+    font-weight: 700;
+    color: rgb(17, 24, 28);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: #1f98a6;
+  }
+  .satis-egitimi ul {
+    margin: 0 0 24px 32px;
+    padding: 0;
+    list-style: disc;
+  }
+  
+  .satis-egitimi ul li {
+    margin-bottom: 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: rgb(17, 24, 28)
+  }
+  
+
+  .satis-egitimi ul li strong{
+    font-weight: 700;
+  }
+  .satis-egitimi ul li strong {
+    font-weight: 600;
+  }
+  
+  .satis-egitimi a {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+  
+  .satis-egitimi a:hover {
+    color: #1799a6;
+  }
+  
+  .egitimler-modul-listesi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .tum-egitim-baslik {
+    font-family:  "Glegoo", serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: #1f98a6;
+  }
+  
+  .egitimler-modul-listesi > div {
+    flex: 1 1 300px;
+    min-width: 250px;
+  }
+  
+  .egitimler-modul-listesi ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .egitimler-modul-listesi ul li {
+    margin-bottom: 10px;
+  }
+  
+  .egitimler-modul-listesi ul li a {
+    color: #374151;
+    text-decoration: underline;
+    font-size: 15px;
+    transition: color 0.3s;
+  }
+  
+  .egitimler-modul-listesi ul li a:hover {
+    color: #1799a6;
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .whatsapp-float img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .tooltip-text {
+    position: absolute;
+    bottom: 70px; /* butonun üstüne gelecek şekilde */
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .whatsapp-float:hover .tooltip-text {
+    opacity: 1;
+    transform: translateY(0);
+  }
